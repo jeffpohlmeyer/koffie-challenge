@@ -1,6 +1,8 @@
 # Run this app with `python app.py` and
 # visit http://127.0.0.1:8050/ in your web browser.
 
+from typing import Literal
+
 from dash import Dash, html, dash_table, dcc
 from dash.dependencies import Input, Output
 import pandas as pd
@@ -18,17 +20,24 @@ def format_name(i: str) -> str:
     return i.replace("_", " ").title()
 
 
-def create_pie_chart(df: pd.DataFrame) -> Figure:
-    fig = px.pie(df, names="MAKE")
-    return fig
+def create_pie_chart(
+    df: pd.DataFrame, chart_type: Literal["MAKE", "MODEL_YEAR"]
+) -> Figure:
+    return px.pie(df, names=chart_type)
+
+
+def create_bar_chart(
+    df: pd.DataFrame, chart_type: Literal["MAKE", "MODEL_YEAR"]
+) -> Figure:
+    return px.bar(df[chart_type].value_counts().sort_index())
 
 
 def main():
     PAGE_SIZE = 20
     df = fetch_data()
-    print(df.head())
-    df1 = px.data.tips()
-    print(df1.head())
+    # print(df.head())
+    # df1 = px.data.tips()
+    # print(df1.head())
     app = Dash(__name__)
     app.layout = html.Div(
         children=[
@@ -40,7 +49,10 @@ def main():
                 page_size=PAGE_SIZE,
                 page_action="custom",
             ),
-            dcc.Graph(id="pie-chart", figure=create_pie_chart(df)),
+            dcc.Graph(id="make-chart", figure=create_pie_chart(df, "MAKE")),
+            dcc.Graph(id="year-chart", figure=create_bar_chart(df, "MODEL_YEAR")),
+            dcc.Graph(id="make-bar-chart", figure=create_bar_chart(df, "MAKE")),
+            # dcc.Graph(id="make-chart", figure=create_pie_chart(df)),
         ]
     )
 
