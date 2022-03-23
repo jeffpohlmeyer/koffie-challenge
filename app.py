@@ -32,9 +32,32 @@ def create_bar_chart(
     return px.bar(df[chart_type].value_counts().sort_index())
 
 
+# def create_bubble_chart(df: pd.DataFrame) -> pd.DataFrame:
+#     df1 = df.copy()
+#     df1 = df1.groupby(["MAKE", "MODEL_YEAR"]).size().reset_index(name="count")
+#     return px.density_heatmap(
+#         df1, x="MAKE", y="MODEL_YEAR"
+#     )
+#     makes = list(df1.MAKE.unique())
+#     makes.sort()
+#     years = list(df1.MODEL_YEAR.unique())
+#     years.sort()
+#
+#     df_new = pd.DataFrame(columns=makes, index=years)
+#     for make in makes:
+#         df_make = df1[df1.MAKE == make]
+#         df_make.set_index("MODEL_YEAR", inplace=True)
+#         df_new[make] = df_make["count"]
+#     df_new.fillna(0, inplace=True)
+#     return px.density_heatmap(
+#         df_new,
+#     )
+
+
 def main():
     PAGE_SIZE = 20
     df = fetch_data()
+    # create_bubble_chart(df)
     # print(df.head())
     # df1 = px.data.tips()
     # print(df1.head())
@@ -52,6 +75,7 @@ def main():
             dcc.Graph(id="make-chart", figure=create_pie_chart(df, "MAKE")),
             dcc.Graph(id="year-chart", figure=create_bar_chart(df, "MODEL_YEAR")),
             dcc.Graph(id="make-bar-chart", figure=create_bar_chart(df, "MAKE")),
+            # dcc.Graph(id='heatmap', figure=create_bubble_chart(df))
             # dcc.Graph(id="make-chart", figure=create_pie_chart(df)),
         ]
     )
@@ -69,5 +93,12 @@ def main():
     app.run_server(debug=True)
 
 
+def test():
+    df = fetch_data()
+    return create_bubble_chart(df)
+
+
 if __name__ == "__main__":
+    # df = px.data.tips()
+    # x = test()
     main()
