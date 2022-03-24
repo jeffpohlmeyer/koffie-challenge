@@ -9,18 +9,16 @@ pip install -r requirements.txt
 ```
 
 ## Running the app locally
-Open a terminal, activate the virtual environment, navigate to the `koffie_frontend_challenge` sub-folder, and simply run the `usage.py` script
+Open a terminal, activate the virtual environment, simply run the `app.py` script
 ```bash
-cd koffie_frontend_challenge
-python ./usage.py
+python ./app.py
 ```
 Then you should be able to open a browser window to http://localhost:8050
 
 ### Developing the React component
 *Note:* You will need to have [Node.js](https://nodejs.org/en/) installed because there is a React component included in the project.  
-Navigate to the `koffie_frontend_challenge directory` and install dependencies
+Once in the main project folder simply install dependencies using NPM or Yarn
 ```bash
-cd ./koffie_frontend_challenge
 npm i # or yarn install
 ```
 You'll then want to open a second terminal window in the same location as this one.  
