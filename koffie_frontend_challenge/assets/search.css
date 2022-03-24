@@ -1,0 +1,77 @@
+/*
+* General header styling
+*/
+#main-header{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 2rem;
+}
+
+#main-title {
+  font-size: 2.5rem;
+}
+
+.sub-title {
+  font-size: 1.75rem;
+}
+
+.main-title-element {
+  display: inline;
+}
+
+#main-title code {
+  padding: .25rem .5rem;
+  border-radius: 5px;
+  background-color: #ccc;
+  font-style: italic;
+}
+
+/*
+* Main search "stuff", generally just to apply flexbox
+*/
+#table-search {
+  display: flex;
+  flex-direction: column;
+}
+#table-search label {
+  color: #555;
+}
+
+/*
+* Styling the <input> field
+*/
+#column-input {
+  display: block;
+  margin: 0;
+  width: 100%;
+  border-color: var(--border-color);
+  border-radius: 0.375rem;
+}
+
+/*
+* Styling the <select> field
+*/
+#column-dropdown {
+  border-radius: 0.375rem;
+  padding: 0.25rem 0;
+  display: block;
+}
+#column-dropdown .Select-control {
+  border-color: var(--border-color);
+}
+
+/*
+* Styling the submit button
+*/
+#submit-button {
+  border-radius: 0.375rem;
+  border-color: var(--border-color);
+  padding: 0.5rem 0;
+  background-image: linear-gradient(to right, #14b8a6, #0891b2);
+  color: #eee;
+  margin-top: 0.25rem;
+}
+
+#submit-button:hover {
+  background-image: linear-gradient(to right, #0d9488, #0e7490);
+}

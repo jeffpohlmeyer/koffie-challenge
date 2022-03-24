@@ -1,45 +1,35 @@
-### Koffie Labs Frontend Challenge
+# Koffie Labs Frontend Challenge
+## Installing Dependencies
+### Python
+After cloning the repo, create a python virtual environment and install the requirements
+```bash
+python -m venv env
+source ./env/bin/activate # or .\env\Scripts\activate on Windows
+pip install -r requirements.txt
+```
 
-#### Objective
+## Running the app locally
+Open a terminal, activate the virtual environment, navigate to the `koffie_frontend_challenge` sub-folder, and simply run the `usage.py` script
+```bash
+cd koffie_frontend_challenge
+python ./usage.py
+```
+Then you should be able to open a browser window to http://localhost:8050
 
-Create a simple Dashboard web app that includes basic interactivity and displays descriptive statistics
-about the `sample.parquet` dataset included with this repo.
-
-
-#### Time Expectation
-
-We expect this challenge to take you 3-5 hours to complete (one or two evenings). You may take as much time as you need to submit the challenge.
-
-#### Requirements
-
-At a minimum, your submitted dashboard should include:
-
-- A table that shows a list of all events. Include pagination/filtering so that the table is usuable.
-- A visualization/plot that describes the vehicles using one or more attributes (make, model, year, etc)
-- An ability to click on a given event and render a map showing the location of the incident
-- A custom CSS file included that makes the dashboard visually appealing
-
-Implement your dashboard as a web application using a web framework, so it can be easily 
-deployed to the cloud if desired.
-
-
-#### Build Setup and Deploy ####
-
-You may use any technology/web framework you like. At Koffie, our dashboards use [Plotly Dash](https://dash.plotly.com),
-so if you don't have a preference we suggest you use it too. Scaffolding is included in this project.
-
-You do not need to deploy your code, but you should be prepared to have a conversation about how to do so.
-
-When you're ready to submit your work to us, create a git repo, 
-push your results, and send us the link.
-
-#### Our Evaluation ####
-
-- Basic functionality
-- Code quality
-- Documentation (readme/comments/tests)
-- Front end aesthetics
-- Ability to explain your implementation decisions
-
-Please feel free to be creative and add any embellishments or additional functionality you would like to show off! Extra
-credit will be given to adventurous candidates who include a custom React component used by their dashboard!
+### Developing the React component
+*Note:* You will need to have [Node.js](https://nodejs.org/en/) installed because there is a React component included in the project.  
+Navigate to the `koffie_frontend_challenge directory` and install dependencies
+```bash
+cd ./koffie_frontend_challenge
+npm i # or yarn install
+```
+You'll then want to open a second terminal window in the same location as this one.  
+In one terminal you'll want to run
+```bash
+npx tailwindcss -i ./src/input.css -o ./assets/output.css --watch
+```
+and in the other terminal, any time you update the React component and need to re-build it, you'll have to run
+```bash
+npm run build
+```
+Then, in the window already focused on http://localhost:8050, you __may__ need to do a hard reload to clear the local cache to see the changes in your React component live.
