@@ -1,7 +1,7 @@
 import json
 import os
-from setuptools import setup
 
+from setuptools import setup
 
 with open("package.json") as f:
     package = json.load(f)

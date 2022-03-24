@@ -1,12 +1,12 @@
-from typing import Literal, Optional, Tuple
+from typing import Optional
 
-from dash import Dash, html, dash_table, dcc
-from dash.dependencies import Input, Output, State
-from geopy import Location
-from geopy.geocoders import Nominatim
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+from dash import Dash, dcc, html
+from dash.dependencies import Input, Output, State
+from geopy import Location
+from geopy.geocoders import Nominatim
 from plotly.graph_objs import Figure
 
 import koffie_frontend_challenge
@@ -110,15 +110,15 @@ def geocode(val: str) -> Location:
     return geolocator.geocode(val)
 
 
-def create_bar_chart(
-    df: pd.DataFrame, chart_type: Literal["MAKE", "MODEL_YEAR"]
-) -> Figure:
+def create_bar_chart(df: pd.DataFrame, chart_type: str) -> Figure:
     """
 
     :param df: The dataframe of all data from `sample.parquet`
     :param chart_type: Can be either "MAKE" or "MODEL_YEAR". Can add more as needed.
     :return: A plotly.graph_object Figure (express calls graph_object)
     """
+    if chart_type != "MAKE" and chart_type != "MODEL_YEAR":
+        raise ValueError("Must be either 'MAKE' or 'MODEL_YEAR'")
     return px.bar(df[chart_type].value_counts().sort_index())
 
 
