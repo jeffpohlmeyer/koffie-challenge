@@ -132,6 +132,8 @@ def main():
 
     app = Dash(__name__)
 
+    server = app.server
+
     """
     Since I've never worked with Plotly and Dash I wasn't sure just
     how much of the markup generation should have been abstracted 
