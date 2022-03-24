@@ -1,3 +1,4 @@
+import pathlib
 from typing import Optional
 
 import pandas as pd
@@ -12,7 +13,7 @@ from plotly.graph_objs import Figure
 import koffie_frontend_challenge
 
 
-def fetch_data(file_path: str = "./sample.parquet") -> pd.DataFrame:
+def fetch_data(file_path: pathlib.Path) -> pd.DataFrame:
     df = pd.read_parquet(file_path)
     return df.copy()
 
@@ -124,7 +125,8 @@ def create_bar_chart(df: pd.DataFrame, chart_type: str) -> Figure:
 
 # Initialize params, fetch data, instantiate app
 PAGE_SIZE = 20
-df = fetch_data()
+curr_dir = pathlib.Path(__file__).resolve().parent.parent
+df = fetch_data(curr_dir / "koffie_frontend_challenge/sample.parquet")
 size = df.size
 clicks = 0
 columns = [{"name": format_name(i), "id": i} for i in df.columns]
