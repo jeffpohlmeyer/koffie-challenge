@@ -1,0 +1,86 @@
+{
+  "src/lib/components/TableComponent.react.js": {
+    "description": "",
+    "displayName": "TableComponent",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      },
+      "data": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "The DataFrame of data that is to be displayed in the table"
+      },
+      "columns": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "An array of objects: {name: str, id: str} used for display and\r\nidentification of columns in the table for calling setProps"
+      },
+      "page_current": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "A value used pretty much only for pagination purposes"
+      },
+      "total_results": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "A value used pretty much only for pagination purposes"
+      },
+      "page_size": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "A value used pretty much only for pagination purposes"
+      },
+      "location": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Needed because it is passed up to Dash to update the map\r\nafter a row is clicked in the table"
+      },
+      "report_number": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Needed because it is passed up to Dash to update the map\r\nafter a row is clicked in the table"
+      },
+      "column": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The column that is being sorted, if sorting is active"
+      },
+      "ascending": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Whether the sort is ascending (1), descending (-1), or none (0)"
+      }
+    }
+  }
+}
