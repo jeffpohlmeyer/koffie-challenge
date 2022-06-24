@@ -1,4 +1,6 @@
 # Koffie Labs Frontend Challenge
+I interviewed for a frontend position with https://getkoffie.com/ a few months ago and was tasked with a challenge exercise. This is what I did.
+
 ## Installing Dependencies
 ### Python
 After cloning the repo, create a python virtual environment and install the requirements
