@@ -1,5 +1,5 @@
 # Koffie Labs Frontend Challenge
-I interviewed for a frontend position with https://getkoffie.com/ a few months ago and was tasked with a challenge exercise. This is what I did.
+https://getkoffie.com/
 
 ## Installing Dependencies
 ### Python
